@@ -11,7 +11,7 @@ app.get('/api', (req, res) => {
 });
 
 const options = {
-  origin: 'http://localhost:3000',
+  origin: 'https://cofun.digital',
   }
 import cors from 'cors';
 app.use(cors(options))
