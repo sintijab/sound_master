@@ -13,6 +13,7 @@ app.get('/api', (req, res) => {
 const options = {
   origin: 'http://localhost:3000',
   }
+import cors from 'cors';
 app.use(cors(options))
 
 app.get('/api/sounds/technical/spatial_context/:spatial_context', async (req, res) => {
