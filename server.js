@@ -11,9 +11,11 @@ app.get('/api', (req, res) => {
 });
 
 const options = {
-  origin: 'https://cofun.digital',
-  }
+  origin: ['https://cofun.digital', 'http://localhost:3000'],
+  optionsSuccessStatus: 200
+}
 import cors from 'cors';
+
 app.use(cors(options))
 
 app.get('/api/sounds/technical/spatial_context/:spatial_context', async (req, res) => {
