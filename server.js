@@ -10,6 +10,11 @@ app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to sound_master!' });
 });
 
+const options = {
+  origin: 'http://localhost:3000',
+  }
+app.use(cors(options))
+
 app.get('/api/sounds/technical/spatial_context/:spatial_context', async (req, res) => {
   const { spatial_context } = req.params;
   const spatial_context_escape = spatial_context.toString().toLowerCase().replace(/[^a-zA-Z0-9_]/g, '');
