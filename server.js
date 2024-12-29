@@ -11,7 +11,7 @@ app.get('/api', (req, res) => {
 });
 
 const options = {
-  origin: ['https://cofun.digital', 'http://localhost:3000'],
+  origin: ['https://cofun.digital', 'http://localhost:3000', 'https://ai-assistant.cofun.digital/'],
   optionsSuccessStatus: 200
 }
 import cors from 'cors';
