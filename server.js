@@ -6,17 +6,16 @@ const app = express();
 
 app.use(express.json())
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to sound_master!' });
+app.use((_, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['https://cofun.digital', 'http://localhost:3000', 'https://ai-assistant.cofun.digital']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type');
+  next();
 });
 
-const options = {
-  origin: ['https://cofun.digital', 'http://localhost:3000', 'https://ai-assistant.cofun.digital'],
-  optionsSuccessStatus: 200
-}
-import cors from 'cors';
-
-app.use(cors(options))
+app.get('/health', (req, res) => {
+  res.send({ message: 'Ok' });
+});
 
 app.get('/api/sounds/technical/spatial_context/:spatial_context', async (req, res) => {
   const { spatial_context } = req.params;
@@ -48,7 +47,7 @@ app.get('/api/sounds/open', async (_, res) => {
 })
 
 app.post('/api/sounds/technical', async (req, res) => {
-  const { title, author, source, user_email, sound_source, rhytmic_scale, tempo_modulation, beat_types, tempo_range, tempo_complexity, spatial_context, enclosed_settings, open_air, natural_environments, date } = req.body;
+  const { title, author, source, user_email, sound_source, rhytmic_scale, tempo_modulation, beat_types, tempo_range, tempo_complexity, spatial_context, enclosed_settings = null, open_air = null, natural_environments = null, date } = req.body;
   try {
     const id = uuidv4();
     const title_escape = title.toString().toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '');
@@ -77,7 +76,7 @@ app.post('/api/sounds/open', async (req, res) => {
   }
 })
 
-app.get('/api', (req, res) => {
+app.get('/api', (_, res) => {
   res.send({ message: 'Welcome to socket-io!' });
 });
 
