@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json())
 
 app.use((_, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['https://cofun.digital', 'http://localhost:3000', 'https://ai-assistant.cofun.digital']);
+  res.append('Access-Control-Allow-Origin', 'https://cofun.digital');
   res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.append('Access-Control-Allow-Headers', 'Content-Type');
   next();
