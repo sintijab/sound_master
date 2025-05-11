@@ -41,8 +41,25 @@ CREATE TABLE sound_open (
 );
 
 
-INSERT INTO sound_technical(id, title, author, source, user_email, rhytmic_scale, tempo_modulation, beat_types, tempo_range, tempo_complexity, spatial_context, enclosed_settings, open_air, natural_environments, date)
-VALUES ('0', 'Joy', 'Isaac Hayes', NULL, 'syntia.birgele@gmail.com', 'macro', 'static_tempo', 'syncopation', 'medium', 'constant', 'enclosed_settings', 'studio', NULL, NULL, 'Thu Oct 10 2024 00:04:56 GMT+0200 (Central European Summer Time)');
+INSERT INTO sound_technical(id, title, author, source, user_email, sound_source, rhytmic_scale, tempo_modulation, beat_types, tempo_range, tempo_complexity, spatial_context, enclosed_settings, open_air, natural_environments, date)
+VALUES (
+  '1', 
+  'Confluence Loop', 
+  'Bela', 
+  'https://www.youtube.com/watch?v=NPfqfTz_bBg', 
+  'syntia.birgele@gmail.com', 
+  'hybrid_sources', 
+  'recursive', 
+  'rubato', 
+  'complex', 
+  'medium', 
+  'modulating', 
+  'enclosed_settings', 
+  'studio', 
+  NULL, 
+  NULL, 
+  'Sun May 11 2025 13:50:58 GMT+0200 (Central European Summer Time)'
+);
 
 
 CREATE TABLE users (
